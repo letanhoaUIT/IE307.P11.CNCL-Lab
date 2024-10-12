@@ -1,6 +1,6 @@
 # Bai 1
 ![Project Logo](./bai1.jpg)
-#Bai 2
+# Bai 2
 ![Project Logo](./bai2.jpg)
 
 #How to run
