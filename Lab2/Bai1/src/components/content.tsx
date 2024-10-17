@@ -9,7 +9,7 @@ interface PostContentProps {
 const PostContent = ({ content, image }: PostContentProps) => (
   <View>
     <Text style={styles.content}>{content}</Text>
-    <Image source={{ uri: image }} style={styles.image} />
+    <Image source={{ uri: image }} style={styles.postImage} />
   </View>
 );
 
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   content: {
     marginBottom: 10,
   },
-  image: {
+  postImage: {
     width: '100%',
     height: 200,
     borderRadius: 5,

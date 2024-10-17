@@ -7,14 +7,14 @@ interface PostHeaderProps {
 }
 
 const PostHeader = ({ avatar, username }: PostHeaderProps) => (
-  <View style={styles.header}>
+  <View style={styles.userInfo}>
     <Image source={{ uri: avatar }} style={styles.avatar} />
     <Text style={styles.username}>{username}</Text>
   </View>
 );
 
 const styles = StyleSheet.create({
-  header: {
+  userInfo: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 10,

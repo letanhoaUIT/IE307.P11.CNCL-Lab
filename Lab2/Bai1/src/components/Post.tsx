@@ -17,15 +17,19 @@ interface PostProps {
 }
 
 const Post = ({ post }: PostProps) => (
-  <View style={styles.container}>
+  <View style={styles.postContainer}>
     <PostHeader avatar={post.avatar} username={post.username} />
     <PostContent content={post.content} image={post.image} />
-    <PostFooter likes={post.likes} comments={post.comments} shares={post.shares} />
+    <PostFooter
+      likes={post.likes}
+      comments={post.comments}
+      shares={post.shares}
+    />
   </View>
 );
 
 const styles = StyleSheet.create({
-  container: {
+  postContainer: {
     margin: 6,
     padding: 10,
     backgroundColor: '#fff',

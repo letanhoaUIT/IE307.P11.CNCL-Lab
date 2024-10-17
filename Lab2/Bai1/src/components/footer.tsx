@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { FontAwesome } from '@expo/vector-icons';
 
 interface PostFooterProps {
   likes: number;
@@ -9,35 +9,84 @@ interface PostFooterProps {
 }
 
 const PostFooter = ({ likes, comments, shares }: PostFooterProps) => {
+  // Khởi tạo state cho likes, comments, shares
   const [likeCount, setLikeCount] = useState(likes);
+  const [commentCount, setCommentCount] = useState(comments);
+  const [shareCount, setShareCount] = useState(shares);
 
-  const handleLike = () => setLikeCount(prev => prev + 1);
+  // Xử lý khi nhấn Like
+  const handleLike = () => {
+    setLikeCount((prevLikes) => (prevLikes === likes ? prevLikes + 1 : likes));
+  };
+
+  // Xử lý khi nhấn Comment
+  const handleComment = () => {
+    setCommentCount((prevComments) => prevComments + 1);
+  };
+
+  // Xử lý khi nhấn Share
+  const handleShare = () => {
+    setShareCount((prevShares) => prevShares + 1);
+  };
 
   return (
-    <View style={styles.footer}>
-      <TouchableOpacity onPress={handleLike} style={styles.button}>
-        <Icon name="thumbs-up" size={20} color="black" />
-        <Text style={styles.text}>{likeCount} Likes</Text>
-      </TouchableOpacity>
-      <Text style={styles.text}>{comments} Comments</Text>
-      <Text style={styles.text}>{shares} Shares</Text>
+    <View>
+      <View style={styles.showStatic}>
+        <Text style={styles.staticText}>{likeCount} Likes</Text>
+        <Text style={styles.staticText}>{commentCount} Comments</Text>
+        <Text style={styles.staticText}>{shareCount} Shares</Text>
+      </View>
+
+      <View style={styles.separator} />
+
+      {/* Các nút tương tác */}
+      <View style={styles.interactionButtons}>
+        <TouchableOpacity onPress={handleLike} style={styles.button}>
+          <FontAwesome name="thumbs-up" size={20} color="black" style={{ opacity: 0.5 }} />
+          <Text style={styles.buttonText}>Like</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={handleComment} style={styles.button}>
+          <FontAwesome name="comment" size={20} color="black" style={{ opacity: 0.5 }} />
+          <Text style={styles.buttonText}>Comment</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={handleShare} style={styles.button}>
+          <FontAwesome name="share" size={20} color="black" style={{ opacity: 0.5 }} />
+          <Text style={styles.buttonText}>Share</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  footer: {
+    showStatic: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     marginTop: 10,
+  },
+  staticText: {
+    color: 'grey',
+  },
+  interactionButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 1,
+  },
+  buttonText: {
+    fontWeight: 'bold',
+    color: 'black',
+    marginLeft: 6,
   },
   button: {
     flexDirection: 'row',
     alignItems: 'center',
   },
-  text: {
-    marginLeft: 6,
-    fontWeight: 'bold',
+    separator: {
+    height: 1,
+    marginVertical: 20,
+    backgroundColor: '#cccccc'
   },
 });
 
