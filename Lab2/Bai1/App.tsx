@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { FlatList, View, Text, StyleSheet } from 'react-native';
+import Post from './src/components/Post';
+import { posts } from './src/data';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+const App = () => (
+  <View style={styles.container}>
+    <Text style={styles.header}>Social Media Feed</Text>
+    <FlatList
+      data={posts}
+      renderItem={({ item }) => <Post post={item} />}
+      keyExtractor={(item) => item.id.toString()}
+    />
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#F0F2F3',
+    paddingTop: 50,
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginVertical: 10,
+    color: 'skyblue',
   },
 });
+
+export default App;
