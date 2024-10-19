@@ -3,26 +3,35 @@ import { View, Text, StyleSheet } from 'react-native';
 
 interface FaqListProps {
   feedbacks: string[];
+  isDarkMode: boolean;
 }
 
-const FaqList = ({ feedbacks }: FaqListProps) => (
-  <View>
-    <Text style={styles.faqTitle}>FAQs</Text>
-    {feedbacks.map((item, index) => (
-      <Text key={index} style={styles.faqItem}>{item}</Text>
-    ))}
+const FaqList = ({ feedbacks, isDarkMode }: FaqListProps) => (
+  <View style={styles.container}>
+    <Text style={[styles.title, isDarkMode && styles.darkText]}>FAQs</Text>
+    {feedbacks.length === 0 ? (
+      <Text style={isDarkMode ? styles.darkText : null}>No feedback available.</Text>
+    ) : (
+      feedbacks.map((feedback, index) => (
+        <Text key={index} style={isDarkMode ? styles.darkText : null}>
+          {feedback}
+        </Text>
+      ))
+    )}
   </View>
 );
 
 const styles = StyleSheet.create({
-  faqTitle: {
+  container: {
+    marginTop: 20,
+  },
+  title: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginVertical: 10,
+    marginBottom: 10,
   },
-  faqItem: {
-    marginVertical: 5,
-    color: 'grey',
+  darkText: {
+    color: 'white',
   },
 });
 

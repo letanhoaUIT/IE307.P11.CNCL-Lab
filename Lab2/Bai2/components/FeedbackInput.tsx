@@ -1,26 +1,32 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, TextInput, Button, Alert, StyleSheet } from 'react-native';
 
 interface FeedbackInputProps {
   onSubmit: (feedback: string) => void;
+  isDarkMode: boolean;
 }
 
-const FeedbackInput = ({ onSubmit }: FeedbackInputProps) => {
+const FeedbackInput = ({ onSubmit, isDarkMode }: FeedbackInputProps) => {
   const [feedback, setFeedback] = useState('');
 
   const handleSubmit = () => {
     if (feedback.trim()) {
       onSubmit(feedback);
-      Alert.alert('Thank you for your feedback!'); // Hiển thị thông báo
-      setFeedback(''); // Reset trường nhập phản hồi
+      setFeedback('');  // Reset trường nhập phản hồi
+    } else {
+      Alert.alert('Error', 'Feedback cannot be empty!');
     }
   };
 
   return (
     <View>
       <TextInput
-        style={styles.input}
+        style={[
+          styles.input,
+          isDarkMode && styles.inputDark,
+        ]}
         placeholder="Enter your feedback"
+        placeholderTextColor={isDarkMode ? '#bbb' : '#666'}
         value={feedback}
         onChangeText={setFeedback}
         multiline
@@ -38,6 +44,12 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     marginBottom: 10,
+    color: 'black',
+  },
+  inputDark: {
+    borderColor: '#555',
+    backgroundColor: '#222',
+    color: 'white',
   },
 });
 
