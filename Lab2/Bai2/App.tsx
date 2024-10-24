@@ -1,3 +1,4 @@
+// 21522081 - Lê Tấn Hòa 
 import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import SettingsScreen from './components/SettingScreen';

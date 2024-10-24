@@ -1,10 +1,10 @@
+  //Lê Tấn Hòa - 21522081
+
 import React from 'react';
 import { ScrollView, StyleSheet, View, Text, Dimensions } from 'react-native';
 import { posts } from './src/data';
 import Post from './src/components/Post';
-
 const { height } = Dimensions.get('window');  
-
 const App = () => {
   return (
     <View style={styles.container}>

@@ -1,3 +1,5 @@
+// 21522081-Lê Tấn Hòa
+
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';

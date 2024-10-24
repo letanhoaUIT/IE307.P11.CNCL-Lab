@@ -1,3 +1,5 @@
+// 21522081-Lê Tấn Hòa
+
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 

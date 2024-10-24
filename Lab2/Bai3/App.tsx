@@ -1,4 +1,4 @@
-// App.js
+// 21522081 - Lê Tấn Hòa
 import React, { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -13,7 +13,7 @@ function AppNavigator() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator  screenOptions={{ headerShown: false }}>
         {isAuthenticated ? (
           <Stack.Screen name="MainBottomTabs" component={MainBottomTabs} />
         ) : (

@@ -1,3 +1,5 @@
+// 21522081 - Lê Tấn Hòa 
+
 import React, { useState } from 'react';
 import { View, Text, Switch, ScrollView, StyleSheet, Alert } from 'react-native';
 import LogoHeader from './LogoHeader';

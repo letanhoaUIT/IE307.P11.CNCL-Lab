@@ -1,3 +1,5 @@
+  //Lê Tấn Hòa - 21522081
+
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, SectionList, ImageBackground } from 'react-native';
 import React, { useState } from 'react';
@@ -118,6 +120,7 @@ const styles = StyleSheet.create({
     padding: 8,
 
   },
+  //Lê Tấn Hòa - 21522081
   sectionHeader: {
     fontSize: 18,
     fontWeight: 'bold',
